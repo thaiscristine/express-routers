@@ -45,7 +45,7 @@ describe('Users controller', function(){
 			request(app)
 				.get('/users')
 				.end(function(err, res){
-					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.statusCode).to.be.equal(200); 
 					expect(res.body).to.be.an('array');
 					done();
 				});
@@ -57,7 +57,7 @@ describe('Users controller', function(){
 			request(app)
 				.get('/users/id:')
 				.end(function(err, res){
-					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.statusCode).to.be.equal(200); 
 					expect(res.body).to.be.an('array');
 					done();
 				});
@@ -69,15 +69,12 @@ describe('Users controller', function(){
 			request(app)
 				.delete('/users/id:')
 				.end(function(err, res){
-					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.statusCode).to.be.equal(200); 
 					expect(res.body).to.be.an('object');
 					done();
 				});
 		});
 	});
-
-
-
 
 });
 
