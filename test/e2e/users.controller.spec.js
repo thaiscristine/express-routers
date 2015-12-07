@@ -8,7 +8,6 @@ var expect = chai.expect;
 
 // var chai = require('chai').shoul; modifica os dados adicionando a funcao shoul, nao é legal
 
-
 describe('Users controller', function(){
 	describe('.list - GET /users', function(){
 		it('should return a json array', function(done){ // done como argumento do it
