@@ -2,19 +2,11 @@
 
 var express = require('express');
 var app = express();
+var routers = require('./routers/index.js'); // nao precisa escrever index..
 
-var controllers = require('./controllers'); // procura pelo arquivo index  (controllers/index)
 
-app
-	.route('/users')
-	.get(controllers.users.list) // listar todos os usuarios
-	.post(controllers.users.create); // cadastrar os usuarios
-
-app
-	.route('/users/:id') // usuario unico
-	.get(controllers.users.get) // pegar os dados (getSingle)
-	.put(controllers.users.update) //  atualizar os dados (updateSingle)
-	.delete(controllers.users.del) // deletar (deleteSingle)*/
+// criar "roteadores"
+app.use('/api', routers.api) // ('prefixo', ) 
 
 app.listen(3000, serverLogInit);
 
