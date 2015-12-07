@@ -17,7 +17,7 @@ describe('Users controller', function(){
 					expect(res.statusCode).to.be.equal(200);//expect(res.Code.be.an('array'));
 					expect(res.body).to.be.an('array');
 					expect(res.body)
-						.all.have.property('name');
+						.all.have.property('name'); // verifica se existe a chave 'name'
 						//.to.be.an('string');
 					done(); // chamar a funcao done
 				}); // end retorno do request
@@ -35,12 +35,14 @@ describe('Users controller', function(){
 				.end(function(err, res){
 					expect(res.statusCode).to.be.equal(201); // http criado
 					expect(res.body).to.be.an('object');
+					expect(res.body)
+						.all.have.property('message');
 					done();
 				});
 		});
 	});
 
-	describe('.get - POST /users', function(){
+	describe('.get - GET /users', function(){
 		it('should return a json array', function(done){
 			request(app)
 				.get('/users')
@@ -52,13 +54,13 @@ describe('Users controller', function(){
 		});
 	});
 
-	describe('.update - POST /users/id:', function(){
-		it('should return a json array', function(done){
+	describe('.update - PUT /users/id:', function(){
+		it('should return a json object', function(done){
 			request(app)
-				.get('/users/id:')
+				.put('/users/id:')
 				.end(function(err, res){
 					expect(res.statusCode).to.be.equal(200); 
-					expect(res.body).to.be.an('array');
+					expect(res.body).to.be.an('object');
 					done();
 				});
 		});
