@@ -24,8 +24,64 @@ describe('Users controller', function(){
 				}); // end retorno do request
 		});
 
-		it('test de comportamento 2', function(){
+		/*it('test de comportamento 2', function(){
 			
+		});*/
+	});
+
+	describe('.create - POST /users', function(){
+		it('should send a json object', function(done){
+			request(app)
+				.post('/users')
+				.end(function(err, res){
+					expect(res.statusCode).to.be.equal(201); // http criado
+					expect(res.body).to.be.an('object');
+					done();
+				});
 		});
 	});
+
+	describe('.get - POST /users', function(){
+		it('should return a json array', function(done){
+			request(app)
+				.get('/users')
+				.end(function(err, res){
+					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.body).to.be.an('array');
+					done();
+				});
+		});
+	});
+
+	describe('.update - POST /users/id:', function(){
+		it('should return a json array', function(done){
+			request(app)
+				.get('/users/id:')
+				.end(function(err, res){
+					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.body).to.be.an('array');
+					done();
+				});
+		});
+	});
+
+	describe('.del - DELETE /users/id:', function(){
+		it('should return a json object', function(done){
+			request(app)
+				.delete('/users/id:')
+				.end(function(err, res){
+					expect(res.statusCode).to.be.equal(200); // http criado
+					expect(res.body).to.be.an('object');
+					done();
+				});
+		});
+	});
+
+
+
+
+});
+
+describe('Users controller', function(){
+	
 });
