@@ -1,6 +1,6 @@
 'use strict';
 
-var Router = require('express').Router; // 
+var Router = require('express').Router; // maiuscula por ser construtor
 var router = new Router();
 var controllers = require('../controllers'); // procura pelo arquivo index  (controllers/index)
 
