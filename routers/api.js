@@ -1,8 +1,14 @@
 'use strict';
 
-var Router = require('express').Router; // maiuscula por ser construtor
-var router = new Router();
-var controllers = require('../controllers'); // procura pelo arquivo index  (controllers/index)
+let Router = require('express').Router; // maiuscula por ser construtor
+let router = new Router();
+let controllers = require('../controllers'); // procura pelo arquivo index  (controllers/index)
+let bodyParser = require('body-parser'); // recebe e converte dados em json ou urlEncoded
+let multer = require('multer')();
+
+router.use(bodyParser.urlencoded({extended:false})); // parsiamento para receber urlencoded
+router.use(bodyParser.json());						 // parsiamento para receber json
+router.use(multer.array());							 // parsiamento para receber form-data
 
 router
 	.route('/users')  // caminho na url (lembrando que existe um prefixo na app.js)
